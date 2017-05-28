@@ -92,4 +92,12 @@ RUN apt-get update \
     splancs \
     geoR \
     ## from bioconductor
-  && R -e "BiocInstaller::biocLite('rhdf5')"
+    && R -e "BiocInstaller::biocLite('rhdf5')" \
+## Install additional R packages 
+    ## from Github
+    && installGithub.r \
+    sboysel/boysel \
+    sboysel/africa \
+    sboysel/murdock \
+    hannesmuehleisen/MonetDBLite
+

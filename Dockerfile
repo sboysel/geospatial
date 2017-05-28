@@ -67,7 +67,7 @@ RUN apt-get update \
   ## Cleanup gdal & geos installation
   && rm -rf gdal-* geos-* \
 ## Install R packages labeled "core" in Spatial taskview 
-  && install2.r --error \
+    install2.r --error \
     ## from CRAN
     DCluster \
     RColorBrewer \
@@ -92,4 +92,12 @@ RUN apt-get update \
     splancs \
     geoR \
     ## from bioconductor
-    && R -e "BiocInstaller::biocLite('rhdf5')"
+    && R -e "BiocInstaller::biocLite('rhdf5')" \
+## Install additional R packages 
+    ## from Github
+    && installGithub.r \
+    sboysel/boysel \
+    sboysel/africa \
+    sboysel/murdock \
+    hannesmuehleisen/MonetDBLite
+
