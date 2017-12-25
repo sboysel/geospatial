@@ -1,4 +1,4 @@
-FROM rocker/verse:3.4.0
+FROM rocker/verse:3.4.1
 MAINTAINER "Carl Boettiger" cboettig@ropensci.org
 
 RUN apt-get update \
@@ -46,12 +46,4 @@ RUN apt-get update \
     geoR \
     geosphere \
     ## from bioconductor
-    && R -e "BiocInstaller::biocLite('rhdf5')" \
-## Install additional R packages 
-    ## from Github
-    && installGithub.r \
-    sboysel/boysel \
-    sboysel/africa \
-    sboysel/murdock \
-    hannesmuehleisen/MonetDBLite
-
+    && R -e "BiocInstaller::biocLite('rhdf5')"
